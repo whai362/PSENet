@@ -26,13 +26,10 @@ We are preparing the code and will realise it later.
 | PSENet-2s | 81.95 | 79.30 | 80.60 |
 | PSENet-1s | 82.50 | 79.89 | 81.17 |
 
-### [ICPR MTWI 2018 [Challenge 2](https://tianchi.aliyun.com/competition/rankingList.htm?spm=5176.100067.5678.4.65166a80jnPm5W&raceId=231651) (5 / 1424)
+### [ICPR MTWI 2018 [Challenge 2](https://tianchi.aliyun.com/competition/rankingList.htm?spm=5176.100067.5678.4.65166a80jnPm5W&raceId=231651)
 | Method | Precision (%) | Recall (%) | F-measure (%) | 
 | - | - | - | - |
 | PSENet-1s | 78.5 | 72.1 | 75.2 |
 
 ## Results
 ![image](https://github.com/whai362/PSENet/blob/master/figure/res0.png)
-![image](https://github.com/whai362/PSENet/blob/master/figure/res1.png)
-![image](https://github.com/whai362/PSENet/blob/master/figure/res2.png)
-![image](https://github.com/whai362/PSENet/blob/master/figure/res3.png)
