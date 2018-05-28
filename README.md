@@ -32,3 +32,7 @@ Progressive Scale Expansion Network (PSENet) is a shape robust text detector whi
 | PSENet-1s | 78.5 | 72.1 | 75.2 |
 
 ## Results
+![image](https://github.com/whai362/PSENet/blob/master/figure/res0.png)
+![image](https://github.com/whai362/PSENet/blob/master/figure/res1.png)
+![image](https://github.com/whai362/PSENet/blob/master/figure/res2.png)
+![image](https://github.com/whai362/PSENet/blob/master/figure/res3.png)
