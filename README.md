@@ -1,7 +1,7 @@
 # PSENet
 ## Introduction
-Progressive Scale Expansion Network (PSENet) is a shape robust text detector which is able to well detect the arbitrary-shape text in natural scene.   
-We are preparing the code and will realise it later.
+Progressive Scale Expansion Network (PSENet) is a text detector which is able to well detect the arbitrary-shape text in natural scene.
+Paper and code are coming soon.
 ![image](https://github.com/whai362/PSENet/blob/master/figure/pipeline.png)
 
 ## Performance
