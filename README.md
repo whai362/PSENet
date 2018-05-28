@@ -1,5 +1,5 @@
 # PSENet
 ## Introduction
 
-![](https://github.com/whai362/PSENet/figure/pipeline.png)
+<img src="./figure/pipeline.png)" width="100%">
 
