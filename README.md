@@ -14,8 +14,14 @@ Code are coming soon.
   <img src="https://github.com/whai362/PSENet/blob/master/figure/pipeline.png">
 </div>
 <p align="center">
-  Figure 1: Illustration of our overall pipeline. The left part is implemented from FPN. The right
-part denotes the feature fusion and the progressive scale expansion algorithm.
+  Figure 1: Illustration of our overall pipeline.
+</p>
+
+<div align="center">
+  <img src="https://github.com/whai362/PSENet/blob/master/figure/pse.png">
+</div>
+<p align="center">
+  Figure 2: The procedure of progressive scale expansion algorithm.
 </p>
 
 ## Performance
@@ -46,4 +52,9 @@ part denotes the feature fusion and the progressive scale expansion algorithm.
 | PSENet-1s | 78.5 | 72.1 | 75.2 |
 
 ## Results
-![image](https://github.com/whai362/PSENet/blob/master/figure/res0.png)
+<div align="center">
+  <img src="https://github.com/whai362/PSENet/blob/master/figure/res0.png">
+</div>
+<p align="center">
+  Figure 3: The results on ICDAR 2015, ICDAR 2017 MLT and SCUT-CTW1500
+</p>
