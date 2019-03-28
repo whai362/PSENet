@@ -20,7 +20,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python train_ic15.py
 
 ## Testing
 ```
-CUDA_VISIBLE_DEVICES=4 python test_ic15.py --scale 1 --resume [path of model]
+CUDA_VISIBLE_DEVICES=0 python test_ic15.py --scale 1 --resume [path of model]
 ```
 
 
