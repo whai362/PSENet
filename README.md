@@ -2,7 +2,7 @@
 
 ## Requirements
 * python 2.7
-* PyTorch v0.4.1 or Install PyTorch v1.0.0
+* PyTorch v0.4.1 or PyTorch v1.0.0
 * pyclipper
 * Polygon2
 * OpenCV 3+ (for c++ version pse)
