@@ -1,7 +1,7 @@
 # Shape Robust Text Detection with Progressive Scale Expansion Network
 
 ## Requirements
-* python 2.7
+* Python 2.7
 * PyTorch v0.4.1+
 * pyclipper
 * Polygon2
@@ -20,21 +20,28 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python train_ic15.py
 CUDA_VISIBLE_DEVICES=0 python test_ic15.py --scale 1 --resume [path of model]
 ```
 
+## Eval script for ICDAR 2015 and SCUT-CTW1500
+```
+cd eval
+sh eval_ic15.sh
+sh eval_ctw1500.sh
+```
+
 
 ## Performance (new version paper)
 ### [ICDAR 2015](http://rrc.cvc.uab.es/?ch=4&com=evaluation&task=1)
-| Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS | Model |
+| Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS (1080Ti) | Model |
 | - | - | - | - | - | - | - |
 | PSENet-1s (ResNet50) | - | 81.49 | 79.68 | 80.57 | 1.6 | [baiduyun](https://pan.baidu.com/s/17FssfXd-hjsU5i2GGrKD-g)(extract code: rxti) |
 | PSENet-1s (ResNet50) | pretrain on IC17 MLT | 86.92 | 84.5 | 85.69 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
 | PSENet-4s (ResNet50) | pretrain on IC17 MLT | 86.1 | 83.77 | 84.92 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
 
 ### [SCUT-CTW1500](https://github.com/Yuliang-Liu/Curve-Text-Detector)
-| Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS | Model |
+| Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS ((1080Ti) | Model |
 | - | - | - | - | - | - | - |
 | PSENet-1s (ResNet50) | - | 80.57 | 75.55 | 78.0 | 3.9 | [baiduyun](https://pan.baidu.com/s/1BqJspFwBmHjoqlE0jOrJQg)(extract code: ksv7) |
-| PSENet-1s (ResNet50) | pretrain on IC17 MLT | 84.84| 79.73 | 82.2 | 3.9 | todo |
-| PSENet-4s (ResNet50) | pretrain on IC17 MLT | 82.09 | 77.84 | 79.9 | 8.4 | todo |
+| PSENet-1s (ResNet50) | pretrain on IC17 MLT | 84.84| 79.73 | 82.2 | 3.9 | [baiduyun](https://pan.baidu.com/s/1zonNEABLk4ifseeJtQeS4w)(extract code: z7ac) |
+| PSENet-4s (ResNet50) | pretrain on IC17 MLT | 82.09 | 77.84 | 79.9 | 8.4 | [baiduyun](https://pan.baidu.com/s/1zonNEABLk4ifseeJtQeS4w)(extract code: z7ac) |
 
 ## Performance (old version paper on arxiv)
 ### [ICDAR 2015](http://rrc.cvc.uab.es/?ch=4&com=evaluation&task=1) (training with ICDAR 2017 MLT)
