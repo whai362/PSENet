@@ -147,7 +147,6 @@ def shrink(bboxes, rate, max_shr=20):
 
 class CTW1500Loader(data.Dataset):
     def __init__(self, is_transform=False, img_size=None, kernel_num=7, min_scale=0.4):
-        self.split = split
         self.is_transform = is_transform
         
         self.img_size = img_size if (img_size is None or isinstance(img_size, tuple)) else (img_size, img_size)

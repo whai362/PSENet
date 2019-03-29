@@ -10,7 +10,7 @@ from torch.autograd import Variable
 from torch.utils import data
 import os
 
-from dataset import IC15Loader
+from dataset import CTW1500Loader
 from metrics import runningScore
 import models
 from util import Logger, AverageMeter
@@ -181,7 +181,7 @@ def save_checkpoint(state, checkpoint='checkpoint', filename='checkpoint.pth.tar
 
 def main(args):
     if args.checkpoint == '':
-        args.checkpoint = "checkpoints/ic15_%s_bs_%d_ep_%d"%(args.arch, args.batch_size, args.n_epoch)
+        args.checkpoint = "checkpoints/ctw1500_%s_bs_%d_ep_%d"%(args.arch, args.batch_size, args.n_epoch)
     if args.pretrain:
         if 'synth' in args.pretrain:
             args.checkpoint += "_pretrain_synth"
@@ -200,7 +200,7 @@ def main(args):
     min_scale = 0.4
     start_epoch = 0
 
-    data_loader = IC15Loader(is_transform=True, img_size=args.img_size, kernel_num=kernel_num, min_scale=min_scale)
+    data_loader = CTW1500Loader(is_transform=True, img_size=args.img_size, kernel_num=kernel_num, min_scale=min_scale)
     train_loader = torch.utils.data.DataLoader(
         data_loader,
         batch_size=args.batch_size,
@@ -223,7 +223,7 @@ def main(args):
     else:
         optimizer = torch.optim.SGD(model.parameters(), lr=args.lr, momentum=0.99, weight_decay=5e-4)
 
-    title = 'icdar2015'
+    title = 'CTW1500'
     if args.pretrain:
         print('Using pretrained model.')
         assert os.path.isfile(args.pretrain), 'Error: no checkpoint directory found!'

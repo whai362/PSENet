@@ -11,8 +11,8 @@ import torch
 import pyclipper
 import Polygon as plg
 
-ctw_root_dir = '/home/shared/ctw1500/'
-ctw_test_data_dir = ctw_root_dir + 'tmp/'
+ctw_root_dir = './data/CTW1500/'
+ctw_test_data_dir = ctw_root_dir + 'test/text_image/'
 
 random.seed(123456)
 
@@ -25,7 +25,7 @@ def get_img(img_path):
         raise
     return img
 
-def scale(img, long_size=2240):
+def scale(img, long_size=1280):
     h, w = img.shape[0:2]
     scale = long_size * 1.0 / max(h, w)
     img = cv2.resize(img, dsize=None, fx=scale, fy=scale)
@@ -63,10 +63,10 @@ class CTW1500TestLoader(data.Dataset):
 
         img = get_img(img_path)
 
-        scaled_img = scale(img, self.long_size)    
-        scaled_img = Image.fromarray(img)
-        scaled_img = img.convert('RGB')
-        scaled_img = transforms.ToTensor()(img)
-        scaled_img = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])(img)
-
-        return img[:, :, [2, 1, 0]]
+        scaled_img = scale(img, self.long_size)
+        scaled_img = Image.fromarray(scaled_img)
+        scaled_img = scaled_img.convert('RGB')
+        scaled_img = transforms.ToTensor()(scaled_img)
+        scaled_img = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])(scaled_img)
+        
+        return img[:, :, [2, 1, 0]], scaled_img

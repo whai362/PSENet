@@ -12,7 +12,7 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 from torch.utils import data
 
-from dataset import IC15TestLoader
+from dataset import CTW1500TestLoader
 import models
 import util
 # c++ version pse based on opencv 3+
@@ -43,11 +43,18 @@ def debug(idx, img_paths, imgs, output_root):
     cv2.imwrite(output_root + img_name, res)
 
 def write_result_as_txt(image_name, bboxes, path):
-    filename = util.io.join_path(path, 'res_%s.txt'%(image_name))
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    filename = util.io.join_path(path, '%s.txt'%(image_name))
     lines = []
     for b_idx, bbox in enumerate(bboxes):
         values = [int(v) for v in bbox]
-        line = "%d, %d, %d, %d, %d, %d, %d, %d\n"%tuple(values)
+        # line = "%d, %d, %d, %d, %d, %d, %d, %d\n"%tuple(values)
+        line = "%d"%values[0]
+        for v_id in range(1, len(values)):
+            line += ", %d"%values[v_id]
+        line += '\n'
         lines.append(line)
     util.io.write_lines(filename, lines)
 
@@ -68,7 +75,7 @@ def polygon_from_points(points):
     return plg.Polygon(pointMat)
 
 def test(args):
-    data_loader = IC15TestLoader(long_size=args.long_size)
+    data_loader = CTW1500TestLoader(long_size=args.long_size)
     test_loader = torch.utils.data.DataLoader(
         data_loader,
         batch_size=1,
@@ -154,8 +161,20 @@ def test(args):
             if score_i < args.min_score:
                 continue
 
-            rect = cv2.minAreaRect(points)
-            bbox = cv2.boxPoints(rect) * scale
+            # rect = cv2.minAreaRect(points)
+            binary = np.zeros(label.shape, dtype='uint8')
+            binary[label == i] = 1
+
+            _, contours, _ = cv2.findContours(binary, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+            contour = contours[0]
+            # epsilon = 0.01 * cv2.arcLength(contour, True)
+            # bbox = cv2.approxPolyDP(contour, epsilon, True)
+            bbox = contour
+
+            if bbox.shape[0] <= 2:
+                continue
+            
+            bbox = bbox * scale
             bbox = bbox.astype('int32')
             bboxes.append(bbox.reshape(-1))
 
@@ -167,18 +186,13 @@ def test(args):
         sys.stdout.flush()
 
         for bbox in bboxes:
-            cv2.drawContours(text_box, [bbox.reshape(4, 2)], -1, (0, 255, 0), 2)
+            cv2.drawContours(text_box, [bbox.reshape(bbox.shape[0] / 2, 2)], -1, (0, 255, 0), 2)
 
         image_name = data_loader.img_paths[idx].split('/')[-1].split('.')[0]
-        write_result_as_txt(image_name, bboxes, 'outputs/submit_ic15/')
+        write_result_as_txt(image_name, bboxes, 'outputs/submit_ctw1500/')
         
         text_box = cv2.resize(text_box, (text.shape[1], text.shape[0]))
-        debug(idx, data_loader.img_paths, [[text_box]], 'outputs/vis_ic15/')
-
-    cmd = 'cd %s;zip -j %s %s/*'%('./outputs/', 'submit_ic15.zip', 'submit_ic15');
-    print(cmd)
-    sys.stdout.flush()
-    util.cmd.cmd(cmd)
+        debug(idx, data_loader.img_paths, [[text_box]], 'outputs/vis_ctw1500/')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Hyperparams')
@@ -187,15 +201,15 @@ if __name__ == '__main__':
                         help='Path to previous saved model to restart from')
     parser.add_argument('--binary_th', nargs='?', type=float, default=1.0,
                         help='Path to previous saved model to restart from')
-    parser.add_argument('--kernel_num', nargs='?', type=int, default=7,
+    parser.add_argument('--kernel_num', nargs='?', type=int, default=3,
                         help='Path to previous saved model to restart from')
     parser.add_argument('--scale', nargs='?', type=int, default=1,
                         help='Path to previous saved model to restart from')
-    parser.add_argument('--long_size', nargs='?', type=int, default=2240,
+    parser.add_argument('--long_size', nargs='?', type=int, default=1280,
                         help='Path to previous saved model to restart from')
-    parser.add_argument('--min_kernel_area', nargs='?', type=float, default=5.0,
+    parser.add_argument('--min_kernel_area', nargs='?', type=float, default=10.0,
                         help='min kernel area')
-    parser.add_argument('--min_area', nargs='?', type=float, default=800.0,
+    parser.add_argument('--min_area', nargs='?', type=float, default=300.0,
                         help='min area')
     parser.add_argument('--min_score', nargs='?', type=float, default=0.93,
                         help='min score')
