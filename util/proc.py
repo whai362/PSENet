@@ -22,13 +22,13 @@ def kill(pid):
             kill(p)
     elif type(pid) == int:
         cmd = 'kill -9 %d'%(pid)
-        print cmd
-        print util.cmd.cmd(cmd)
+        print(cmd)
+        print(util.cmd.cmd(cmd))
     elif type(pid) == str:
         pids = get_pid(pid)
         kill(pids)
     else:
-        raise ValueError, 'Not supported parameter type:', type(pid)
+        raise(ValueError, 'Not supported parameter type:', type(pid))
 
 def ps_aux_grep(pattern):
     import util

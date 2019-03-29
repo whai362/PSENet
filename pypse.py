@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import Queue
+import queue as Queue
 
 def pse(kernals, min_area):
     kernal_num = len(kernals)

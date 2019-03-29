@@ -32,7 +32,7 @@ class ThreadPool(object):
         elif type(args) == dict:
             args = [(None, args)]
         else:
-            raise ValueError, "Unsuported args,", type(args)
+            raise(ValueError, "Unsuported args,", type(args))
         request = threadpool.makeRequests(fn, args)[0]
         self.pool.putRequest(request, block = False)
         self.pool.poll()

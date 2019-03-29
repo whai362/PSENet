@@ -71,7 +71,7 @@ class Logger(object):
         self.file.flush()
 
     def plot(self, names=None):   
-        print 'plot'
+        print('plot')
         '''
         names = self.names if names == None else names
         numbers = self.numbers

@@ -24,7 +24,7 @@ def get_img(img_path):
         img = cv2.imread(img_path)
         img = img[:, :, [2, 1, 0]]
     except Exception as e:
-        print img_path
+        print(img_path)
         raise
     return img
 

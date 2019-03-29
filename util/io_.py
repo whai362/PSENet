@@ -8,8 +8,8 @@ Tool  functions for file system operation and I/O.
 In the style of linux shell commands
 '''
 import os
-import cPickle as pkl
-import commands
+import pickle as pkl
+import subprocess
 import logging
 
 import util
@@ -119,7 +119,7 @@ def write_lines(p, lines):
 def cat(p):
     """return the text in a file as a whole"""
     cmd = 'cat ' + p
-    return commands.getoutput(cmd)
+    return subprocess.getoutput(cmd)
 
 def exists(path):
     path = get_absolute_path(path)

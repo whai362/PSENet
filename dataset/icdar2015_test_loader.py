@@ -9,9 +9,9 @@ import random
 import torchvision.transforms as transforms
 import torch
 
-ic15_root_dir = './data/ICDAR2015/Challenge4/'
-ic15_test_data_dir = ic15_root_dir + 'ch4_test_images/'
-ic15_test_gt_dir = ic15_root_dir + 'ch4_test_localization_transcription_gt/'
+ic15_root_dir = '../datasets/ICDAR2015/'
+ic15_test_data_dir = ic15_root_dir + 'ch4_training_images/'
+ic15_test_gt_dir = ic15_root_dir + 'ch4_training_localization_transcription_gt/'
 
 random.seed(123456)
 
@@ -20,7 +20,7 @@ def get_img(img_path):
         img = cv2.imread(img_path)
         img = img[:, :, [2, 1, 0]]
     except Exception as e:
-        print img_path
+        print(img_path)
         raise
     return img
 
@@ -48,8 +48,8 @@ class IC15TestLoader(data.Dataset):
             self.img_paths.extend(img_paths)
 
         part_size = len(self.img_paths) / part_num
-        l = part_id * part_size
-        r = (part_id + 1) * part_size
+        l = int(part_id * part_size)
+        r = int((part_id + 1) * part_size)
         self.img_paths = self.img_paths[l:r]
         self.long_size = long_size
 

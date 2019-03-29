@@ -1,0 +1,6 @@
+*.DS_Store
+*.pyc
+*.so
+__pycache__/
+pse.so.dSYM/
+test_data/

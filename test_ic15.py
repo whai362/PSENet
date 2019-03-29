@@ -16,9 +16,10 @@ from dataset import IC15TestLoader
 import models
 import util
 # c++ version pse based on opencv 3+
-from pse import pse
+# from pse import pse
 # python pse
-# from pypse import pse as pypse
+from pypse import pse
+from tqdm import tqdm
 
 def extend_3c(img):
     img = img.reshape(img.shape[0], img.shape[1], 1)
@@ -39,7 +40,7 @@ def debug(idx, img_paths, imgs, output_root):
         col.append(res)
     res = np.concatenate(col, axis=0)
     img_name = img_paths[idx].split('/')[-1]
-    print idx, '/', len(img_paths), img_name
+    print(idx, '/', len(img_paths), img_name)
     cv2.imwrite(output_root + img_name, res)
 
 def write_result_as_txt(image_name, bboxes, path):
@@ -87,12 +88,13 @@ def test(args):
     for param in model.parameters():
         param.requires_grad = False
 
-    model = model.cuda()
+    if torch.cuda.is_available():
+        model = model.cuda()
     
     if args.resume is not None:                                         
         if os.path.isfile(args.resume):
             print("Loading model and optimizer from checkpoint '{}'".format(args.resume))
-            checkpoint = torch.load(args.resume)
+            checkpoint = torch.load(args.resume, map_location='cpu')
             
             # model.load_state_dict(checkpoint['state_dict'])
             d = collections.OrderedDict()
@@ -112,15 +114,18 @@ def test(args):
     
     total_frame = 0.0
     total_time = 0.0
-    for idx, (org_img, img) in enumerate(test_loader):
+    for idx, (org_img, img) in tqdm(enumerate(test_loader)):
         print('progress: %d / %d'%(idx, len(test_loader)))
         sys.stdout.flush()
 
-        img = Variable(img.cuda(), volatile=True)
+        if torch.cuda.is_available():
+            img = img.cuda()
+        img = Variable(img, volatile=True)
         org_img = org_img.numpy().astype('uint8')[0]
         text_box = org_img.copy()
 
-        torch.cuda.synchronize()
+        if torch.cuda.is_available():
+            torch.cuda.synchronize()
         start = time.time()
 
         outputs = model(img)
@@ -159,7 +164,8 @@ def test(args):
             bbox = bbox.astype('int32')
             bboxes.append(bbox.reshape(-1))
 
-        torch.cuda.synchronize()
+        if torch.cuda.is_available():
+            torch.cuda.synchronize()
         end = time.time()
         total_frame += 1
         total_time += (end - start)
@@ -170,12 +176,12 @@ def test(args):
             cv2.drawContours(text_box, [bbox.reshape(4, 2)], -1, (255, 0, 0), 2)
 
         image_name = data_loader.img_paths[idx].split('/')[-1].split('.')[0]
-        write_result_as_txt(image_name, bboxes, 'outputs/submit_ic15/')
+        write_result_as_txt(image_name, bboxes, 'test_data/outputs/submit_ic15/')
         
         text_box = cv2.resize(text_box, (text.shape[1], text.shape[0]))
-        debug(idx, data_loader.img_paths, [[text_box]], 'outputs/vis_ic15/')
+        debug(idx, data_loader.img_paths, [[text_box]], 'test_data/outputs/vis_ic15/')
 
-    cmd = 'cd %s;zip -j %s %s/*'%('./outputs/', 'submit_ic15.zip', 'submit_ic15');
+    # cmd = 'cd %s;zip -j %s %s/*'%('./outputs/', 'submit_ic15.zip', 'submit_ic15');
     print(cmd)
     sys.stdout.flush()
     util.cmd.cmd(cmd)
@@ -191,7 +197,7 @@ if __name__ == '__main__':
                         help='Path to previous saved model to restart from')
     parser.add_argument('--scale', nargs='?', type=int, default=1,
                         help='Path to previous saved model to restart from')
-    parser.add_argument('--long_size', nargs='?', type=int, default=2240,
+    parser.add_argument('--long_size', nargs='?', type=int, default=1000,
                         help='Path to previous saved model to restart from')
     parser.add_argument('--min_kernel_area', nargs='?', type=float, default=5.0,
                         help='min kernel area')
