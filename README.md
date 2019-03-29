@@ -26,11 +26,11 @@ CUDA_VISIBLE_DEVICES=0 python test_ic15.py --scale 1 --resume [path of model]
 
 ## Performance (new version paper)
 ### [ICDAR 2015](http://rrc.cvc.uab.es/?ch=4&com=evaluation&task=1)
-| Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | Model |
+| Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS | Model |
 | - | - | - | - | - | - |
-| PSENet-1s (ResNet50) | - | 81.49 | 79.68 | 80.57 | [baiduyun](https://pan.baidu.com/s/17FssfXd-hjsU5i2GGrKD-g)(extract code: rxti) |
-| PSENet-1s (ResNet50) | pretrain on IC17 MLT | 86.92 | 84.5 | 85.69 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
-| PSENet-4s (ResNet50) | pretrain on IC17 MLT | 86.1 | 83.77 | 84.92 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
+| PSENet-1s (ResNet50) | - | 81.49 | 79.68 | 80.57 | 1.6 | [baiduyun](https://pan.baidu.com/s/17FssfXd-hjsU5i2GGrKD-g)(extract code: rxti) |
+| PSENet-1s (ResNet50) | pretrain on IC17 MLT | 86.92 | 84.5 | 85.69 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
+| PSENet-4s (ResNet50) | pretrain on IC17 MLT | 86.1 | 83.77 | 84.92 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
 
 ## Performance (old version paper on arxiv)
 ### [ICDAR 2015](http://rrc.cvc.uab.es/?ch=4&com=evaluation&task=1) (training with ICDAR 2017 MLT)
