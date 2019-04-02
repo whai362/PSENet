@@ -37,7 +37,7 @@ sh eval_ctw1500.sh
 | PSENet-4s (ResNet50) | pretrain on IC17 MLT | 86.1 | 83.77 | 84.92 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
 
 ### [SCUT-CTW1500](https://github.com/Yuliang-Liu/Curve-Text-Detector)
-| Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS ((1080Ti) | Model |
+| Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS (1080Ti) | Model |
 | - | - | - | - | - | - | - |
 | PSENet-1s (ResNet50) | - | 80.57 | 75.55 | 78.0 | 3.9 | [baiduyun](https://pan.baidu.com/s/1BqJspFwBmHjoqlE0jOrJQg)(extract code: ksv7) |
 | PSENet-1s (ResNet50) | pretrain on IC17 MLT | 84.84| 79.73 | 82.2 | 3.9 | [baiduyun](https://pan.baidu.com/s/1zonNEABLk4ifseeJtQeS4w)(extract code: z7ac) |
