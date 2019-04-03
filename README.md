@@ -77,3 +77,6 @@ sh eval_ctw1500.sh
 <p align="center">
   Figure 3: The results on ICDAR 2015, ICDAR 2017 MLT and SCUT-CTW1500
 </p>
+
+## Paper Link
+[https://arxiv.org/abs/1903.12473](https://arxiv.org/abs/1903.12473)
