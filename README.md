@@ -84,4 +84,4 @@ sh eval_ctw1500.sh
 [old version paper] [https://arxiv.org/abs/1806.02559](https://arxiv.org/abs/1806.02559)
 
 ## Other Implements
-[tensorflow version (thanks @liuheng92)] [https://github.com/liuheng92/tensorflow_PSENet](https://github.com/liuheng92/tensorflow_PSENet)
+[tensorflow version (thanks @[liuheng92](https://github.com/liuheng92))] [https://github.com/liuheng92/tensorflow_PSENet](https://github.com/liuheng92/tensorflow_PSENet)
