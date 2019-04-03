@@ -79,4 +79,5 @@ sh eval_ctw1500.sh
 </p>
 
 ## Paper Link
-[https://arxiv.org/abs/1903.12473](https://arxiv.org/abs/1903.12473)
+[new version paper] [https://arxiv.org/abs/1903.12473](https://arxiv.org/abs/1903.12473)
+[old version paper] [https://arxiv.org/abs/1806.02559](https://arxiv.org/abs/1806.02559)
