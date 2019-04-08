@@ -5,7 +5,8 @@
 * PyTorch v0.4.1+
 * pyclipper
 * Polygon2
-* OpenCV 3+ (for c++ version pse)
+* OpenCV 3.4 (for c++ version pse)
+* opencv-python 3.4
 
 ## Introduction
 Progressive Scale Expansion Network (PSENet) is a text detector which is able to well detect the arbitrary-shape text in natural scene.
