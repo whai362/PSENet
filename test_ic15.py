@@ -140,7 +140,8 @@ def test(args):
         # python version pse
         # pred = pypse(kernels, args.min_kernel_area / (args.scale * args.scale))
         
-        scale = (org_img.shape[0] * 1.0 / pred.shape[0], org_img.shape[1] * 1.0 / pred.shape[1])
+        # scale = (org_img.shape[0] * 1.0 / pred.shape[0], org_img.shape[1] * 1.0 / pred.shape[1])
+        scale = (org_img.shape[1] * 1.0 / pred.shape[1], org_img.shape[0] * 1.0 / pred.shape[0])
         label = pred
         label_num = np.max(label) + 1
         bboxes = []
