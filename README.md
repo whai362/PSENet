@@ -33,16 +33,16 @@ sh eval_ctw1500.sh
 ### [ICDAR 2015](http://rrc.cvc.uab.es/?ch=4&com=evaluation&task=1)
 | Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS (1080Ti) | Model |
 | - | - | - | - | - | - | - |
-| PSENet-1s (ResNet50) | - | 81.49 | 79.68 | 80.57 | 1.6 | [baiduyun](https://pan.baidu.com/s/17FssfXd-hjsU5i2GGrKD-g)(extract code: rxti) |
-| PSENet-1s (ResNet50) | pretrain on IC17 MLT | 86.92 | 84.5 | 85.69 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
-| PSENet-4s (ResNet50) | pretrain on IC17 MLT | 86.1 | 83.77 | 84.92 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo) |
+| PSENet-1s (ResNet50) | - | 81.49 | 79.68 | 80.57 | 1.6 | [baiduyun](https://pan.baidu.com/s/17FssfXd-hjsU5i2GGrKD-g)(extract code: rxti); [OneDrive](https://1drv.ms/u/s!Ai5Ldd26Lrzkkx3E1OTZzcNlMz5T) |
+| PSENet-1s (ResNet50) | pretrain on IC17 MLT | 86.92 | 84.5 | 85.69 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo); [OneDrive](https://1drv.ms/u/s!Ai5Ldd26Lrzkkx44xvpay4rbV4nW) |
+| PSENet-4s (ResNet50) | pretrain on IC17 MLT | 86.1 | 83.77 | 84.92 | 3.8 | [baiduyun](https://pan.baidu.com/s/1oKVxHKuT3hdzDUmksbcgAQ)(extract code: aieo); [OneDrive](https://1drv.ms/u/s!Ai5Ldd26Lrzkkx44xvpay4rbV4nW) |
 
 ### [SCUT-CTW1500](https://github.com/Yuliang-Liu/Curve-Text-Detector)
 | Method | Extra Data | Precision (%) | Recall (%) | F-measure (%) | FPS (1080Ti) | Model |
 | - | - | - | - | - | - | - |
-| PSENet-1s (ResNet50) | - | 80.57 | 75.55 | 78.0 | 3.9 | [baiduyun](https://pan.baidu.com/s/1BqJspFwBmHjoqlE0jOrJQg)(extract code: ksv7) |
-| PSENet-1s (ResNet50) | pretrain on IC17 MLT | 84.84| 79.73 | 82.2 | 3.9 | [baiduyun](https://pan.baidu.com/s/1zonNEABLk4ifseeJtQeS4w)(extract code: z7ac) |
-| PSENet-4s (ResNet50) | pretrain on IC17 MLT | 82.09 | 77.84 | 79.9 | 8.4 | [baiduyun](https://pan.baidu.com/s/1zonNEABLk4ifseeJtQeS4w)(extract code: z7ac) |
+| PSENet-1s (ResNet50) | - | 80.57 | 75.55 | 78.0 | 3.9 | [baiduyun](https://pan.baidu.com/s/1BqJspFwBmHjoqlE0jOrJQg)(extract code: ksv7); [OneDrive](https://1drv.ms/u/s!Ai5Ldd26LrzkkxtlTb-yqBPd1PCn) |
+| PSENet-1s (ResNet50) | pretrain on IC17 MLT | 84.84| 79.73 | 82.2 | 3.9 | [baiduyun](https://pan.baidu.com/s/1zonNEABLk4ifseeJtQeS4w)(extract code: z7ac); [OneDrive](https://1drv.ms/u/s!Ai5Ldd26LrzkkxxJcfU1a__6nJTT) |
+| PSENet-4s (ResNet50) | pretrain on IC17 MLT | 82.09 | 77.84 | 79.9 | 8.4 | [baiduyun](https://pan.baidu.com/s/1zonNEABLk4ifseeJtQeS4w)(extract code: z7ac); [OneDrive](https://1drv.ms/u/s!Ai5Ldd26LrzkkxxJcfU1a__6nJTT) |
 
 ## Performance (old version paper)
 ### [ICDAR 2015](http://rrc.cvc.uab.es/?ch=4&com=evaluation&task=1) (training with ICDAR 2017 MLT)
