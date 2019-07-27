@@ -86,3 +86,14 @@ sh eval_ctw1500.sh
 
 ## Other Implements
 [tensorflow version (thanks @[liuheng92](https://github.com/liuheng92))] [https://github.com/liuheng92/tensorflow_PSENet](https://github.com/liuheng92/tensorflow_PSENet)
+
+## Citation
+```
+@inproceedings{wang2019shape,
+  title={Shape Robust Text Detection With Progressive Scale Expansion Network},
+  author={Wang, Wenhai and Xie, Enze and Li, Xiang and Hou, Wenbo and Lu, Tong and Yu, Gang and Shao, Shuai},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={9336--9345},
+  year={2019}
+}
+```
