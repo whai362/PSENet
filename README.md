@@ -1,5 +1,5 @@
 ## News
-![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Python3 implementations of PSENet [1], PAN [2] and PAN++ [3] are released at https://github.com/whai362/pan_pp.pytorch
+![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Python3 implementations of PSENet [1], PAN [2] and PAN++ [3] are released at https://github.com/whai362/pan_pp.pytorch.
 
 [1] W. Wang, E. Xie, X. Li, W. Hou, T. Lu, G. Yu, and S. Shao. Shape robust text detection with progressive scale expansion network. In Proc. IEEE Conf. Comp. Vis. Patt. Recogn., pages 9336–9345, 2019.
 [2] W. Wang, E. Xie, X. Song, Y. Zang, W. Wang, T. Lu, G. Yu, and C. Shen. Efficient and accurate arbitrary-shaped text detection with pixel aggregation network. In Proc. IEEE Int. Conf. Comp. Vis., pages 8440–8449, 2019.
