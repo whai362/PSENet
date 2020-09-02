@@ -1,3 +1,6 @@
+## News
+Python3 code of PSENet and PAN will be released in [this repository](https://github.com/whai362/pan_pp.pytorch).
+
 # Shape Robust Text Detection with Progressive Scale Expansion Network
 
 ## Requirements
