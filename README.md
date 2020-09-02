@@ -1,5 +1,5 @@
 ## News
-Python3 code of PSENet and PAN will be released in [this repository](https://github.com/whai362/pan_pp.pytorch).
+![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Python3 code of PSENet and PAN will be released in [this repository](https://github.com/whai362/pan_pp.pytorch).
 
 # Shape Robust Text Detection with Progressive Scale Expansion Network
 
