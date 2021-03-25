@@ -76,11 +76,14 @@ Text detection
 
 ## Benchmark 
 ## Results 
-[ICDAR 2015](https://rrc.cvc.uab.es/?ch=4)
-| Method | Backbone | Min_Scale | Short_Size | Precision (%) | Recall (%) | F-measure (%) |
-| PSENet | ResNet50 | 0.4 | 736 | 83.6 | 74.0 | 78.5 |
-| PSENet | ResNet50 | 0.4 | 1024 | 83.4 | 75.5 | 79.3 |
 
+[ICDAR 2015](https://rrc.cvc.uab.es/?ch=4)
+```
+| Method | Backbone | Min_Scale | Short_Size | Precision (%) | Recall (%) | F-measure (%) |
+| :----: | :------: | :-------: | :--------: | ------------- | :--------: | :-----------: |
+| PSENet | ResNet50 | 0.4       | 736        | 83.6          | 74.0       | 78.5          |
+| PSENet | ResNet50 | 0.4       | 1024       | 83.4          | 75.5       | 79.3          |
+```
 
 
 ## Citation
