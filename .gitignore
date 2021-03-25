@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# C extensions
+*.so
+*.o
+*.nfs*
+
+# Distribution / packaging
+.Python
+*build/
+*out/
+*outputs/
+*data/
+*weights/
+*ckpt/
+*pretrain/
+*.pth
+*job.*
+*env.sh
+*.tar
+*checkpoints/
+*dataloader_vis/
+*pretrained/
+pretrained
+data
+vis/
+cc.sh
+*~
+tmp/
