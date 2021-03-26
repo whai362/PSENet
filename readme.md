@@ -77,10 +77,10 @@ Text detection
 
 [ICDAR 2015](https://rrc.cvc.uab.es/?ch=4)
 
-| Method | Backbone | Min_Scale | Short_Size | Precision (%) | Recall (%) | F-measure (%) |
+| Method | Backbone | Config | Short_Size | Precision (%) | Recall (%) | F-measure (%) |
 | :----: | :------: | :-------: | :--------: | ------------- | :--------: | :-----------: |
-| PSENet | ResNet50 | 0.4       | 736        | 83.6          | 74.0       | 78.5          |
-| PSENet | ResNet50 | 0.4       | 1024       | 83.4          | 75.5       | 79.3          |
+| PSENet | ResNet50 | [psenet_r50_ic15_736.py](https://github.com/whai362/PSENet/blob/python3/config/psenet/psenet_r50_ic15_736.py)      | 736        | 83.6          | 74.0       | 78.5          |
+| PSENet | ResNet50 | [psenet_r50_ic15_1280.py](https://github.com/whai362/PSENet/blob/python3/config/psenet/psenet_r50_ic15_1280.py)    | 1024       | 83.4          | 75.5       | 79.3          |
 
 
 ## Citation
