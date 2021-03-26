@@ -214,7 +214,7 @@ class PSENET_CTW(data.Dataset):
             data_dirs = [ctw_test_data_dir]
             gt_dirs = [ctw_test_gt_dir]
         else:
-            print('Error: split must be train or test!')
+            print('Error: split must be test or train!')
             raise
 
         self.img_paths = []
