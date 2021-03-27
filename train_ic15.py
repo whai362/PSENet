@@ -189,7 +189,7 @@ def main(args):
             args.checkpoint += "_pretrain_ic17"
 
     print ('checkpoint path: %s'%args.checkpoint)
-    print ('init lr: %.8f'%args.lr)
+    print ('init learning rate: %.8f'%args.lr)
     print ('schedule: ', args.schedule)
     sys.stdout.flush()
 
