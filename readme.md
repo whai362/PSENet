@@ -77,11 +77,11 @@ Text detection
 
 [ICDAR 2015](https://rrc.cvc.uab.es/?ch=4)
 
-| Method | Backbone | Short_Size | Config | Precision (%) | Recall (%) | F-measure (%) | Model |
+| Method | Backbone | Scale | Config | Precision (%) | Recall (%) | F-measure (%) | Model |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| PseNet | ResNet50 | 736 | [psenet_r50_ic15_736.py](https://github.com/whai362/PSENet/blob/python3/config/psenet/psenet_r50_ic15_736.py) | 83.6 | 74.0 | 78.5 | [Google Drive](https://drive.google.com/file/d/1kxnoYyLnMr_uhvso2v27We6gYNKANXER/view?usp=sharing) |
-| PseNet | ResNet50 | 1024 | [psenet_r50_ic15_1024.py](https://github.com/whai362/PSENet/blob/python3/config/psenet/psenet_r50_ic15_1024.py) | 84.4 | 76.3 | 80.2 | [Google Drive](https://drive.google.com/file/d/1Yz4zrSpvt5nVIqT75EafBPwEl19Sj3Vg/view?usp=sharing) |
-| PseNet(paper) | ResNet50 | 1024 | - | 81.5 | 79.7 | 80.6 | - | 
+| PSENet | ResNet50 | Shorter Side: 736 | [psenet_r50_ic15_736.py](https://github.com/whai362/PSENet/blob/python3/config/psenet/psenet_r50_ic15_736.py) | 83.6 | 74.0 | 78.5 | [Google Drive](https://drive.google.com/file/d/1kxnoYyLnMr_uhvso2v27We6gYNKANXER/view?usp=sharing) |
+| PSENet | ResNet50 | Shorter Side: 1024 | [psenet_r50_ic15_1024.py](https://github.com/whai362/PSENet/blob/python3/config/psenet/psenet_r50_ic15_1024.py) | 84.4 | 76.3 | 80.2 | [Google Drive](https://drive.google.com/file/d/1Yz4zrSpvt5nVIqT75EafBPwEl19Sj3Vg/view?usp=sharing) |
+| PSENet(paper) | ResNet50 | Longer Side: 2240 | - | 81.5 | 79.7 | 80.6 | - | 
 
 [CTW1500](https://github.com/Yuliang-Liu/Curve-Text-Detector)
 
