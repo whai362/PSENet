@@ -109,7 +109,6 @@ Text detection
   pages={9336--9345},
   year={2019}
 }
-
 ```
 
 ## License
