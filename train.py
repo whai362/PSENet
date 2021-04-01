@@ -29,7 +29,6 @@ def train(train_loader, model, optimizer, epoch, start_iter, cfg):
     losses = AverageMeter()
     losses_text = AverageMeter()
     losses_kernels = AverageMeter()
-    losses_rec = AverageMeter()
 
     ious_text = AverageMeter()
     ious_kernel = AverageMeter()
@@ -52,10 +51,10 @@ def train(train_loader, model, optimizer, epoch, start_iter, cfg):
 
         # prepare input
         data.update(dict(cfg=cfg))
-        # print('imgs before model', data['imgs'].shape)
+
         # forward
         outputs = model(**data)
-
+        #
         # print(outputs['loss_text'].shape)
         # print(outputs['loss_kernels'].shape)
 
@@ -73,19 +72,6 @@ def train(train_loader, model, optimizer, epoch, start_iter, cfg):
         iou_kernel = torch.mean(outputs['iou_kernel'])
         ious_kernel.update(iou_kernel.item())
 
-        # recognition loss
-        if hasattr(cfg.model, 'recognition_head'):
-            loss_rec = outputs['loss_rec']
-            valid = loss_rec > 0.5
-            if torch.sum(valid) > 0:
-                loss_rec = torch.mean(loss_rec[valid])
-                losses_rec.update(loss_rec.item())
-                loss = loss + loss_rec
-
-                acc_rec = outputs['acc_rec']
-                acc_rec = torch.mean(acc_rec[valid])
-                accs_rec.update(acc_rec.item(), torch.sum(valid).item())
-
         losses.update(loss.item())
         # backward
         optimizer.zero_grad()
@@ -101,7 +87,7 @@ def train(train_loader, model, optimizer, epoch, start_iter, cfg):
         if iter % 20 == 0:
             output_log = '({batch}/{size}) LR: {lr:.6f} | Batch: {bt:.3f}s | Total: {total:.0f}min | ' \
                          'ETA: {eta:.0f}min | Loss: {loss:.3f} | ' \
-                         'Loss(text/kernel/rec): {loss_text:.3f}/{loss_kernel:.3f}/{loss_rec:.3f} ' \
+                         'Loss(text/kernel): {loss_text:.3f}/{loss_kernel:.3f} ' \
                          '| IoU(text/kernel): {iou_text:.3f}/{iou_kernel:.3f} | Acc rec: {acc_rec:.3f}'.format(
                 batch=iter + 1,
                 size=len(train_loader),
@@ -111,7 +97,6 @@ def train(train_loader, model, optimizer, epoch, start_iter, cfg):
                 eta=batch_time.avg * (len(train_loader) - iter) / 60.0,
                 loss_text=losses_text.avg,
                 loss_kernel=losses_kernels.avg,
-                loss_rec=losses_rec.avg,
                 loss=losses.avg,
                 iou_text=ious_text.avg,
                 iou_kernel=ious_kernel.avg,

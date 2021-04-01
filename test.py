@@ -60,6 +60,7 @@ def test(test_loader, model, cfg):
 
         # save result
         image_name, _ = osp.splitext(osp.basename(test_loader.dataset.img_paths[idx]))
+        # print('image_name', image_name)
         rf.write_result(image_name, outputs)
 
 

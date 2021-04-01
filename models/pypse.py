@@ -5,6 +5,7 @@ from queue import Queue
 
 def pse(kernals, min_area):
     kernal_num = len(kernals)
+    # print('kernal_num', kernal_num)
     pred = np.zeros(kernals[0].shape, dtype='int32')
 
     label_num, label = cv2.connectedComponents(kernals[kernal_num - 1], connectivity=4)

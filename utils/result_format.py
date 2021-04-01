@@ -82,11 +82,20 @@ class ResultFormat(object):
             line += '\n'
             lines.append(line)
 
+        tmp_folder = self.result_path.replace('.zip', '')
+
         file_name = '%s.txt' % image_name
-        file_path = osp.join(self.result_path, file_name)
+        file_path = osp.join(tmp_folder, file_name)
         with open(file_path, 'w') as f:
             for line in lines:
                 f.write(line)
+
+        z = zipfile.ZipFile(self.result_path, 'a', zipfile.ZIP_DEFLATED)
+        z.write(file_path, file_name)
+        z.close()
+
+
+
 
     def _write_result_msra(self, image_name, outputs):
         bboxes = outputs['bboxes']

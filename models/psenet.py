@@ -41,9 +41,6 @@ class PSENet(nn.Module):
 
         # backbone
         f = self.backbone(imgs)
-
-        # print('after backbone', f[0].shape, f[1].shape, f[2].shape, f[3].shape)
-
         if not self.training and cfg.report_speed:
             torch.cuda.synchronize()
             outputs.update(dict(
@@ -65,9 +62,7 @@ class PSENet(nn.Module):
 
         # detection
 
-        # print('before det_head', f.shape)
         det_out = self.det_head(f)
-        # print('after det_head', det_out.shape)
 
         if not self.training and cfg.report_speed:
             torch.cuda.synchronize()
@@ -77,13 +72,10 @@ class PSENet(nn.Module):
 
         if self.training:
             det_out = self._upsample(det_out, imgs.size())
-            # print('after upsample det_head to imgs.size', det_out.shape)
             det_loss = self.det_head.loss(det_out, gt_texts, gt_kernels, training_masks)
             outputs.update(det_loss)
         else:
-            # print('before upsample, det_out.shape:', det_out.shape)
             det_out = self._upsample(det_out, imgs.size(), 1)
-            # print('det_out.shape:', det_out.shape)
             det_res = self.det_head.get_results(det_out, img_metas, cfg)
             outputs.update(det_res)
 

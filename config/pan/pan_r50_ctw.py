@@ -53,6 +53,6 @@ test_cfg = dict(
     min_score=0.85,
     min_area=16,
     kernel_num=7,
-    bbox_type='poly',
+    bbox_type='rect',
     result_path='outputs/submit_ctw.zip'
 )

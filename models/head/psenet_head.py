@@ -49,12 +49,49 @@ class PSENet_Head(nn.Module):
             start = time.time()
 
         score = torch.sigmoid(out[:, 0, :, :])
+        # out = (torch.sign(out - 1) + 1) / 2  # 0 1
+        #
+        # text_mask = out[:, 0, :, :]
+        # kernels = out[:, 1:cfg.test_cfg.kernel_num, :, :] * text_mask
+
         kernels = out[:, :cfg.test_cfg.kernel_num, :, :] > 0
         text_mask = kernels[:, :1, :, :]
         kernels[:, 1:, :, :] = kernels[:, 1:, :, :] * text_mask
 
         score = score.data.cpu().numpy()[0].astype(np.float32)
         kernels = kernels.data.cpu().numpy()[0].astype(np.uint8)
+        # kernel_1 = kernels[1]
+        # kernel_2 = kernels[2]
+        # kernel_3 = kernels[3]
+        # kernel_4 = kernels[4]
+        # kernel_5 = kernels[5]
+        # kernel_6 = kernels[6]
+        #
+        # kernel_1 = kernel_1.reshape(736, 1120, 1)
+        # kernel_2 = kernel_2.reshape(736, 1120, 1)
+        # kernel_3 = kernel_3.reshape(736, 1120, 1)
+        # kernel_4 = kernel_4.reshape(736, 1120, 1)
+        # kernel_5 = kernel_5.reshape(736, 1120, 1)
+        # kernel_6 = kernel_6.reshape(736, 1120, 1)
+        #
+        # kernel_1 = np.concatenate((kernel_1, kernel_1, kernel_1), axis=2) * 255
+        # kernel_2 = np.concatenate((kernel_2, kernel_2, kernel_2), axis=2) * 255
+        # kernel_3 = np.concatenate((kernel_3, kernel_3, kernel_3), axis=2) * 255
+        # kernel_4 = np.concatenate((kernel_4, kernel_4, kernel_4), axis=2) * 255
+        # kernel_5 = np.concatenate((kernel_5, kernel_5, kernel_5), axis=2) * 255
+        # kernel_6 = np.concatenate((kernel_6, kernel_6, kernel_6), axis=2) * 255
+        #
+        # kernel_1 = cv2.copyMakeBorder(kernel_1, 3, 3, 3, 3, cv2.BORDER_CONSTANT, value=[255, 0, 0])
+        # kernel_2 = cv2.copyMakeBorder(kernel_2, 3, 3, 3, 3, cv2.BORDER_CONSTANT, value=[255, 0, 0])
+        # kernel_3 = cv2.copyMakeBorder(kernel_3, 3, 3, 3, 3, cv2.BORDER_CONSTANT, value=[255, 0, 0])
+        # kernel_4 = cv2.copyMakeBorder(kernel_4, 3, 3, 3, 3, cv2.BORDER_CONSTANT, value=[255, 0, 0])
+        # kernel_5 = cv2.copyMakeBorder(kernel_5, 3, 3, 3, 3, cv2.BORDER_CONSTANT, value=[255, 0, 0])
+        # kernel_6 = cv2.copyMakeBorder(kernel_6, 3, 3, 3, 3, cv2.BORDER_CONSTANT, value=[255, 0, 0])
+        #
+        # res = np.concatenate((kernel_1, kernel_2, kernel_3, kernel_4, kernel_5, kernel_6), axis=1)
+        # print('saved kernels.')
+        # cv2.imwrite('vis_kernels.png', res)
+        # exit()
 
         label = pse(kernels, cfg.test_cfg.min_area)
 
@@ -75,12 +112,6 @@ class PSENet_Head(nn.Module):
         scale = (float(org_img_size[1]) / float(img_size[1]),
                  float(org_img_size[0]) / float(img_size[0]))
 
-        with_rec = hasattr(cfg.model, 'recognition_head')
-
-        if with_rec:
-            bboxes_h = np.zeros((1, label_num, 4), dtype=np.int32)
-            instances = [[]]
-
         bboxes = []
         scores = []
         for i in range(1, label_num):
@@ -96,19 +127,13 @@ class PSENet_Head(nn.Module):
                 label[ind] = 0
                 continue
 
-            if with_rec:
-                tl = np.min(points, axis=0)
-                br = np.max(points, axis=0) + 1
-                bboxes_h[0, i] = (tl[0], tl[1], br[0], br[1])
-                instances[0].append(i)
-
             if cfg.test_cfg.bbox_type == 'rect':
                 rect = cv2.minAreaRect(points[:, ::-1])
                 bbox = cv2.boxPoints(rect) * scale
             elif cfg.test_cfg.bbox_type == 'poly':
                 binary = np.zeros(label.shape, dtype='uint8')
                 binary[ind] = 1
-                _, contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
                 bbox = contours[0] * scale
 
             bbox = bbox.astype('int32')
@@ -119,12 +144,6 @@ class PSENet_Head(nn.Module):
             bboxes=bboxes,
             scores=scores
         ))
-        if with_rec:
-            outputs.update(dict(
-                label=label,
-                bboxes_h=bboxes_h,
-                instances=instances
-            ))
 
         return outputs
 

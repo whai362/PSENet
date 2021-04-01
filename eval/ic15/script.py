@@ -6,7 +6,7 @@ import importlib
 
 def evaluation_imports():
     """
-    evaluation_imports: Dictionary ( key = module name , value = alias  )  with python modules used in the evaluation. 
+    evaluation_imports: Dictionary ( key = module name , value = alias  )  with python modules used in the evaluation.
     """
     return {
             'Polygon':'plg',
@@ -75,7 +75,7 @@ def evaluate_method(gtFilePath, submFilePath, evaluationParams):
         # resBoxes[0,3]=int(points[6])
         # resBoxes[0,7]=int(points[7])
         # pointMat = resBoxes[0].reshape([2,4]).T
-        # return plg.Polygon( pointMat)    
+        # return plg.Polygon( pointMat)
 
         p = np.array(points)
         p = p.reshape(p.shape[0]//2, 2)

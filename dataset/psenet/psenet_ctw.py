@@ -12,7 +12,7 @@ import string
 import scipy.io as scio
 import mmcv
 
-ctw_root_dir = './data/CTW1500/'
+ctw_root_dir = './data/ctw1500/'
 ctw_train_data_dir = ctw_root_dir + 'train/text_image/'
 ctw_train_gt_dir = ctw_root_dir + 'train/text_label_curve/'
 ctw_test_data_dir = ctw_root_dir + 'test/text_image/'
@@ -195,7 +195,7 @@ class PSENET_CTW(data.Dataset):
                  img_size=None,
                  short_size=736,
                  kernel_num=7,
-                 min_scale=0.7,
+                 min_scale=0.4,
                  read_type='pil',
                  report_speed=False):
         self.split = split
@@ -318,6 +318,7 @@ class PSENET_CTW(data.Dataset):
         )
 
         return data
+        # return img, gt_text, gt_kernels, training_mask
 
     def prepare_test_data(self, index):
         img_path = self.img_paths[index]
@@ -336,7 +337,6 @@ class PSENET_CTW(data.Dataset):
         img = img.convert('RGB')
         img = transforms.ToTensor()(img)
         img = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])(img)
-
         data = dict(
             imgs=img,
             img_metas=img_meta
