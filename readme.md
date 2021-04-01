@@ -1,7 +1,5 @@
-# <img src="logo.jpg" alt="IMAGINE Lab">
-
 ## News
-We have uploaded PSENet from python2 to python3. You can find the old version [here](https://github.com/whai362/PSENet/tree/python2).
+We have uploaded PSENet from python2 to python3. You can find the old version [here](https://github.com/whai362/PSENet/tree/python2)
 
 ## Introduction
 Official Pytorch implementations of PSENet [1].
@@ -115,4 +113,7 @@ Text detection
 ```
 
 ## License
+This work is developed and maintained by [IMAGINE Lab@National Key Laboratory for Novel Software Technology, Nanjing University](https://cs.nju.edu.cn/lutong/ImagineLab.html).
+<img src="logo.jpg" alt="IMAGINE Lab">
+
 This project is released under the [Apache 2.0 license](https://github.com/whai362/pan_pp.pytorch/blob/master/LICENSE).
