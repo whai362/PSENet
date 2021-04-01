@@ -1,4 +1,4 @@
-# <img src="logo.png" alt="IMAGINE Lab">
+# <img src="logo.jpg" alt="IMAGINE Lab">
 
 ## Introduction
 Official Pytorch implementations of PSENet [1].
