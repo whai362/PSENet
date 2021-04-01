@@ -1,3 +1,6 @@
+## News
+We have upgraded PSENet from python2 to python3. The old version can be found at [here](https://github.com/whai362/PSENet/tree/python2).
+
 ## Introduction
 Official Pytorch implementations of PSENet [1].
 
