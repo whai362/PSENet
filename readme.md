@@ -112,7 +112,7 @@ Text detection
 ```
 
 ## License
-This work is developed and maintained by [IMAGINE Lab@National Key Laboratory for Novel Software Technology, Nanjing University](https://cs.nju.edu.cn/lutong/ImagineLab.html).
+This project is developed and maintained by [IMAGINE Lab@National Key Laboratory for Novel Software Technology, Nanjing University](https://cs.nju.edu.cn/lutong/ImagineLab.html).
 
 <img src="logo.jpg" alt="IMAGINE Lab">
 
