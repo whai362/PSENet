@@ -1,5 +1,8 @@
 # <img src="logo.jpg" alt="IMAGINE Lab">
 
+## News
+We have uploaded PSENet from python2 to python3. You can find the old version [here](https://github.com/whai362/PSENet/tree/python2)
+
 ## Introduction
 Official Pytorch implementations of PSENet [1].
 
