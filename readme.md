@@ -1,5 +1,7 @@
 ## News
-We have upgraded PSENet from python2 to python3. You can find the old version [here](https://github.com/whai362/PSENet/tree/python2)
+- PSENet is included in [MMOCR](https://github.com/open-mmlab/mmocr).
+- We have upgraded PSENet from python2 to python3. You can find the old version [here](https://github.com/whai362/PSENet/tree/python2).
+- Code of PAN can be found at [here](https://github.com/whai362/pan_pp.pytorch).
 
 ## Introduction
 Official Pytorch implementations of PSENet [1].
