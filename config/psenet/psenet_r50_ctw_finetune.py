@@ -27,19 +27,33 @@ model = dict(
 data = dict(
     batch_size=16,
     train=dict(
-        type='PSENET_Synth',
+        type='PSENET_CTW',
+        split='train',
         is_transform=True,
         img_size=736,
         short_size=736,
         kernel_num=7,
         min_scale=0.7,
         read_type='cv2'
+    ),
+    test=dict(
+        type='PSENET_CTW',
+        split='test',
+        short_size=736,
+        read_type='cv2'
     )
 )
 train_cfg = dict(
     lr=1e-3,
-    schedule='polylr',
-    epoch=1,
-    optimizer='SGD'
+    schedule=(200, 400,),
+    epoch=520,
+    optimizer='SGD',
+    pretrain='checkpoints/psenet_r50_synth/checkpoint.pth.tar'
 )
-
+test_cfg = dict(
+    min_score=0.85,
+    min_area=16,
+    kernel_num=7,
+    bbox_type='poly',
+    result_path='outputs/submit_ctw.zip'
+)

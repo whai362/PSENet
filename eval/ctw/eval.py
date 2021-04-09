@@ -5,7 +5,7 @@ import mmcv
 
 project_root = '../../'
 
-pred_root = project_root + 'outputs/submit_ctw'
+pred_root = project_root + 'outputs/submit_ctw5'
 gt_root = project_root + 'data/ctw1500/test/text_label_circum/'
 
 

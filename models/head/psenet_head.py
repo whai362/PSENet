@@ -133,7 +133,7 @@ class PSENet_Head(nn.Module):
             elif cfg.test_cfg.bbox_type == 'poly':
                 binary = np.zeros(label.shape, dtype='uint8')
                 binary[ind] = 1
-                contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                _, contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
                 bbox = contours[0] * scale
 
             bbox = bbox.astype('int32')

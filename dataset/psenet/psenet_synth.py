@@ -249,8 +249,6 @@ class PSENET_Synth(data.Dataset):
             imgs = [img, gt_instance, training_mask]
             imgs.extend(gt_kernels)
 
-            if not self.with_rec:
-                imgs = random_horizontal_flip(imgs)
             imgs = random_rotate(imgs)
             imgs = random_crop_padding(imgs, self.img_size)
             img, gt_instance, training_mask, gt_kernels = imgs[0], imgs[1], imgs[2], imgs[3:]
