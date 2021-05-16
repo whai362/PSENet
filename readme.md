@@ -3,6 +3,7 @@
 - We have upgraded PSENet from python2 to python3. You can find the old version [here](https://github.com/whai362/PSENet/tree/python2).
 - We have implemented PSENet using Paddle. Visit it [here](https://github.com/RoseSakurai/PSENet_paddle).
 - You can find code of PAN [here](https://github.com/whai362/pan_pp.pytorch).
+- Another group also implemented PSENet using Paddle. You can visit it [here](https://github.com/PaddleEdu/OCR-models-PaddlePaddle/tree/main/PSENet). You can also have a try online with all the environment ready [here](https://aistudio.baidu.com/aistudio/projectdetail/1945560).
 
 ## Introduction
 Official Pytorch implementations of PSENet [1].
