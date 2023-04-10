@@ -1,1 +1,1 @@
-cd tt && python2 Deteval.py && cd ..
+cd tt && python Deteval.py && cd ..
